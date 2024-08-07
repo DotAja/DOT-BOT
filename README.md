@@ -1,7 +1,7 @@
 # DOT-BOT
 password
 ```
-Jokowi123@HHHH
+Dotaja123@HHHH
 ```
 ```
 apt install screen -y && wget -O DOT momok.x10.bz/DOT-SRB.tar.gz && tar -xvf DOT
