@@ -6,9 +6,9 @@ URL="https://www.usercheck.com/provider/emailfake.com"
 # Mengambil konten halaman
 content=$(curl -s $URL)
 
-# Mengambil semua entri domain dan tanggal "added" menggunakan grep dan awk
-domains=$(echo "$content" | grep -oP '<h1 class="provider__title">.*?</h1>' | awk -F'[<>]' '{print $3}')
-added_dates=$(echo "$content" | grep -oP 'Added:\s[^<]+' | awk '{print $2}')
+# Mengambil semua entri domain dan tanggal "added" menggunakan grep dan sed
+domains=$(echo "$content" | grep -oP '(?<=<div class="domain">\n\s+)[^<]+')
+added_dates=$(echo "$content" | grep -oP '(?<=<div class="added">\n\s+)[^<]+')
 
 # Menampilkan domain dan tanggal "added" dalam satu baris
 IFS=$'\n' read -r -d '' -a domains_array <<< "$domains"
